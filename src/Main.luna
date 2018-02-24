@@ -1,0 +1,30 @@
+import Std.Base
+
+«18»def func1 fileName:
+    «19»path = "data" . addPathSegment fileName
+    «20»file = readFile path
+    «21»textLines = file.lines
+    textLines
+
+«0»def getDataFromFIle fileName:
+    «22»textLines = func1 fileName
+    «6»data = textLines . each (split _ ",")
+    «12»dataFromColumns1 = (data . tail)
+    «7»columns = data . at 0
+    «29»get1 = columns . get
+    «16»someEmptyJSON = JSON . empty
+    «26»dataForEachColumn1 = dataFromColumns1 . get
+    «24»each1 = 10.0
+    «27»zipWith1 = dataForEachColumn1 . each (m: «30»m . zipWith (x: y: «31»(JSON . empty) . insert y x) get1)
+    «32»foldArrayHere = zipWith1 . each (innerLoopData: «33»(innerLoopData . fold (x: «34»JSON . parse x) JSON.empty) )
+    foldArrayHere
+
+«1»def split text char:
+    «8»text . characters . chunkBy (==  char) . filter .first.not . each (_.second.makeText "")
+
+«2»def main:
+    «9»outputCVSToJSON = getDataFromFIle "OfficeSupplies.csv"
+    «10»myList1 = [1,5,6,2,6,7,2,6,8]
+    «11»elementAtN = myList1 . at 4
+
+### META {"metas":[{"marker":22,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":32}}}},{"marker":6,"meta":{"_displayResult":false,"_selectedVisualizer":["LunaVisualizer: base: json","base\\json\\json.html"],"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":528}}}},{"marker":12,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":256,"_vector2_x":624}}}},{"marker":7,"meta":{"_displayResult":false,"_selectedVisualizer":["LunaVisualizer: base: json","base\\json\\json.html"],"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":784}}}},{"marker":29,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":32,"_vector2_x":1056}}}},{"marker":16,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":-320,"_vector2_x":1200}}}},{"marker":26,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":256,"_vector2_x":1088}}}},{"marker":24,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":-192,"_vector2_x":1760}}}},{"marker":27,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":256,"_vector2_x":1488}}}},{"marker":30,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":0}}}},{"marker":31,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":0}}}},{"marker":32,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":16,"_vector2_x":1616}}}},{"marker":33,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":0}}}},{"marker":34,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":0}}}},{"marker":19,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":0}}}},{"marker":20,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":176}}}},{"marker":21,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":352}}}},{"marker":8,"meta":{"_displayResult":false,"_selectedVisualizer":null,"_position":{"fromPosition":{"_vector2_y":0,"_vector2_x":0}}}},{"marker":9,"meta":{"_displayResult":true,"_selectedVisualizer":["LunaVisualizer: base: table","base\\table\\table.html"],"_position":{"fromPosition":{"_vector2_y":160,"_vector2_x":-96}}}},{"marker":10,"meta":{"_displayResult":false,"_selectedVisualizer":["LunaVisualizer: base: json","base\\json\\json.html"],"_position":{"fromPosition":{"_vector2_y":176,"_vector2_x":176}}}},{"marker":11,"meta":{"_displayResult":true,"_selectedVisualizer":["LunaVisualizer: base: json","base\\json\\json.html"],"_position":{"fromPosition":{"_vector2_y":176,"_vector2_x":352}}}}]}
